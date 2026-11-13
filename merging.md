@@ -1,77 +1,79 @@
-# ادغام شاخه‌ها (Merging) در Git
+# Merging in Git
 
-ادغام (Merge) در Git به معنای ترکیب تغییرات موجود در دو شاخه مختلف است. این قابلیت زمانی استفاده می‌شود که توسعه‌دهنده کار خود را در یک شاخه جداگانه به پایان رسانده و قصد دارد تغییرات آن را به شاخه دیگری، معمولاً شاخه اصلی (Main)، اضافه کند.
+Merging is the process of combining changes from one branch into another. It is commonly used to integrate completed features or updates into the main branch.
 
-## دستورات پرکاربرد
+For example, after finishing work on a feature branch, you can merge it into the main branch to include your changes in the project.
 
-**رفتن به شاخه مقصد:**
+## Common Git Commands
+
+**Switch to the target branch:**
 
 ```bash
 git switch main
 ```
 
-**دریافت آخرین تغییرات شاخه اصلی:**
-
-```bash
-git pull origin main
-```
-
-**ادغام شاخه موردنظر با شاخه فعلی:**
+**Merge another branch into the current branch:**
 
 ```bash
 git merge feature-branch
 ```
 
-**ارسال تغییرات ادغام‌شده به GitHub:**
+**Delete a branch after merging:**
+
+```bash
+git branch -d feature-branch
+```
+
+**Push the updated branch to the remote repository:**
 
 ```bash
 git push origin main
 ```
 
-## تعارض در ادغام (Merge Conflict)
+## Types of Merging
 
-گاهی اوقات Git نمی‌تواند تغییرات دو شاخه را به‌صورت خودکار با یکدیگر ترکیب کند. در چنین شرایطی، تعارض ادغام (Merge Conflict) رخ می‌دهد.
+**Fast-Forward Merge:**
 
-این مشکل معمولاً زمانی اتفاق می‌افتد که دو شاخه تغییرات متفاوتی را در یک بخش از یک فایل اعمال کرده باشند.
+A Fast-Forward Merge happens when the target branch has no new commits since the feature branch was created. Git simply moves the target branch pointer forward.
 
-### مراحل برطرف کردن تعارض
+**Three-Way Merge:**
 
-۱. شناسایی فایل‌هایی که دارای تعارض هستند.
+A Three-Way Merge happens when both branches have new commits. Git uses the common ancestor and the latest commits from both branches to combine the changes. This may create a merge commit.
 
-۲. باز کردن فایل و بررسی تغییرات هر دو شاخه.
+## Merge Conflicts
 
-۳. انتخاب تغییرات موردنظر یا ترکیب آن‌ها.
+A Merge Conflict occurs when Git cannot automatically combine changes from different branches. This usually happens when two branches modify the same lines of a file or when one branch deletes a file that another branch modifies.
 
-۴. حذف نشانه‌های مربوط به تعارض در فایل.
+Git marks the conflicting sections in the file using special markers:
 
-۵. ذخیره فایل اصلاح‌شده.
-
-۶. ثبت فایل‌های اصلاح‌شده و ایجاد یک Commit جدید.
-
-```bash
-git add .
-git commit -m "Resolve merge conflict"
+```text
+<<<<<<< HEAD
+Changes from the current branch
+=======
+Changes from the branch being merged
+>>>>>>> feature-branch
 ```
 
-## درخواست ادغام (Pull Request)
+To resolve a merge conflict:
 
-در GitHub معمولاً برای ادغام شاخه‌ها از قابلیتی به نام Pull Request استفاده می‌شود.
+1. Open the file containing the conflict.
+2. Review both versions of the conflicting content.
+3. Decide which changes to keep or combine them manually.
+4. Remove the conflict markers.
+5. Save the file.
+6. Stage the resolved file using `git add`.
+7. Complete the merge by creating a commit if required.
 
-Pull Request درخواستی است که طی آن توسعه‌دهنده پیشنهاد می‌دهد تغییرات یک شاخه به شاخه دیگری، معمولاً Main، اضافه شود.
+## Pull Requests
 
-این قابلیت به اعضای تیم اجازه می‌دهد:
+A Pull Request (PR) is a request to merge changes from one branch into another, usually through a platform such as GitHub.
 
-- تغییرات انجام‌شده را بررسی کنند.
-- درباره کدها و اصلاحات نظر بدهند.
-- پیشنهادهای لازم را ارائه کنند.
-- پیش از ادغام، تغییرات را تأیید کنند.
+Pull Requests allow team members to:
 
-پس از بررسی و تأیید درخواست، یکی از اعضایی که مجوز لازم را دارد می‌تواند عملیات ادغام را انجام دهد.
+- Review code before merging.
+- Discuss proposed changes.
+- Identify potential problems.
+- Suggest improvements.
+- Approve changes before they are merged.
 
-## اهمیت ادغام شاخه‌ها
-
-- ترکیب تغییرات توسعه‌دهندگان مختلف در یک نسخه مشترک از پروژه.
-- جلوگیری از پراکندگی تغییرات در شاخه‌های جداگانه.
-- فراهم کردن امکان بررسی کد پیش از ورود به شاخه اصلی.
-- هماهنگی بهتر میان اعضای تیم.
-- حفظ روند منظم توسعه و تکمیل پروژه.
+A Pull Request does not automatically merge branches. It provides an opportunity for review and approval before the changes are integrated into the target branch.

@@ -1,60 +1,50 @@
-# شاخه‌بندی (Branching) در Git
+# Branching in Git
 
-شاخه‌بندی یکی از قابلیت‌های مهم Git است که به توسعه‌دهندگان اجازه می‌دهد بدون ایجاد تغییر در شاخه اصلی پروژه، روی بخش‌های مختلف آن به‌صورت مستقل کار کنند.
+Branching is one of the most important features of Git. It allows developers to work on different parts of a project independently without making changes directly to the main branch.
 
-هر شاخه (Branch) یک مسیر جداگانه برای توسعه پروژه است. به این ترتیب، اعضای تیم می‌توانند تغییرات خود را در شاخه‌های جداگانه اعمال کنند و پس از تکمیل کار، آن‌ها را به شاخه اصلی (Main) اضافه کنند.
+A branch is a separate line of development. This allows team members to work on different features or tasks simultaneously. Once their work is complete, they can integrate their changes into the main branch.
 
-## دستورات پرکاربرد
+## Common Git Commands
 
-**ایجاد یک شاخه جدید:**
+**Create a new branch:**
 
 ```bash
 git branch feature-branch
 ```
 
-**ایجاد شاخه جدید و ورود به آن:**
+**Create a new branch and switch to it:**
 
 ```bash
 git switch -c feature-branch
 ```
 
-**مشاهده شاخه‌های موجود:**
+**List all existing branches:**
 
 ```bash
 git branch
 ```
 
-**تغییر شاخه فعلی:**
+**Switch to another branch:**
 
 ```bash
 git switch main
 ```
 
-**ارسال شاخه به مخزن GitHub:**
+**Push a branch to the remote repository:**
 
 ```bash
 git push -u origin feature-branch
 ```
 
-## مزایای استفاده از شاخه‌ها
+## Benefits of Using Branches
 
-- جلوگیری از ایجاد تغییرات مستقیم و ناخواسته در شاخه اصلی.
-- امکان فعالیت هم‌زمان چند توسعه‌دهنده روی بخش‌های مختلف پروژه.
-- مدیریت بهتر وظایف و قابلیت‌های جدید.
-- امکان بررسی و آزمایش تغییرات پیش از اضافه شدن به شاخه اصلی.
-- افزایش نظم و سهولت همکاری در پروژه‌های گروهی.
+- Prevents direct and unintended changes to the main branch.
+- Allows multiple developers to work on different parts of a project simultaneously.
+- Makes it easier to manage tasks and develop new features.
+- Allows changes to be reviewed and tested before being added to the main branch.
+- Improves project organization and team collaboration.
 
-## روند معمول کار با شاخه‌ها
+## Typical Branching Workflow
 
-۱. دریافت آخرین تغییرات شاخه اصلی.
 
-۲. ایجاد یک شاخه جدید برای وظیفه موردنظر.
-
-۳. اعمال تغییرات و توسعه بخش موردنظر.
-
-۴. ثبت تغییرات با استفاده از دستور Commit.
-
-۵. ارسال شاخه به مخزن GitHub با دستور Push.
-
-۶. ایجاد یک درخواست ادغام (Pull Request) برای اضافه کردن تغییرات به شاخه اصلی.
 

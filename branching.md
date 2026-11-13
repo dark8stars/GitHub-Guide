@@ -46,9 +46,5 @@ git push -u origin feature-branch
 
 ## Typical Branching Workflow
 
-1. Pull the latest changes from the main branch.
-2. Create a new branch for the task or feature.
-3. Make the required changes and develop the feature.
-4. Save the changes using Git commits.
-5. Push the branch to the remote repository.
-6. Create a Pull Request to propose merging the changes into the main branch.
+
+

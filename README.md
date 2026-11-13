@@ -10,7 +10,7 @@ This repository is a collaborative university project designed to practice and d
 | Name | Student ID | GitHub Account | Responsibilities |
 | :--- | :--- | :--- | :--- |
 | **Mobin Abdollahi** | `40273114` | [@dark8stars](https://github.com/dark8stars) | Project setup, `basic-commands.md`, and conflict resolution |
-| **Team Member** | `40173114` | [@xspider2c](https://github.com/xspider2c) | `branching.md` & `merging.md` guides |
+| **Aref Alipour** | `40173114` | [@xspider2c](https://github.com/xspider2c) | `branching.md` & `merging.md` guides |
 | **Mohammad Mottaghi** | `40173129` | [@BattelMaster831](https://github.com/BattelMaster831) | `collaboration.md` guide & workflow review |
 
 ---
